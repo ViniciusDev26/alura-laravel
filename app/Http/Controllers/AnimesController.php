@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AnimesFormRequest;
 use App\Models\Anime;
-use App\Models\Episodes;
-use App\Models\Season;
 use App\services\AnimeCreatorService;
 use App\services\AnimeDestructorService;
 use Illuminate\Http\Request;
