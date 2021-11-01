@@ -57,6 +57,6 @@ class AnimesController extends Controller
 
         return redirect('animes')
             ->with('status', true)
-            ->with('message', "Anime $anime->name deletado com sucesso");
+            ->with('message', "Anime \"$anime->name\" deletado com sucesso");
     }
 }
