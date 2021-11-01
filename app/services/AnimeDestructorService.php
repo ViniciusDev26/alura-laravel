@@ -40,12 +40,12 @@ class AnimeDestructorService
 
     public function execute(string $uuid)
     {
-        $anime = '';
+        DB::beginTransaction();
 
-        DB::transaction(function() use ($uuid, &$anime) {
-            $anime = Anime::find($uuid);
-            $this->destroyAnime($anime);
-        });
+        $anime = Anime::find($uuid);
+        $this->destroyAnime($anime);
+
+        DB::commit();
 
         return $anime;
     }
