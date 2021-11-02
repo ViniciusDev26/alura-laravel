@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class AnimesController extends Controller
 {
-    public function index(Request $request) {
+    public function index() {
         $animes = Anime::query()->orderBy('name')->get();
 
         return view('animes.index', compact('animes'));
@@ -56,5 +56,14 @@ class AnimesController extends Controller
         return redirect('animes')
             ->with('status', true)
             ->with('message', "Anime \"$anime->name\" deletado com sucesso");
+    }
+
+    public function update(string $id, Request $request)
+    {
+        $name = $request->get('name');
+
+        $anime = Anime::find($id);
+        $anime->name = $name;
+        $anime->save();
     }
 }
