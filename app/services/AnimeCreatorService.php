@@ -34,7 +34,7 @@ class AnimeCreatorService
         }
     }
 
-    public function execute(string $name, int $seasons, int $episodes): Anime | null
+    public function execute(string $name, int $seasons, int $episodes): Anime
     {
         DB::beginTransaction();
 
