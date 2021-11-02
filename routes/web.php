@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('animes', AnimesController::class);
 
-Route::get('/seasons/{animeId}', [SeasonsController::class, 'index'])->name('seasons.show');
+Route::get('/seasons/{animeId}', [SeasonsController::class, 'index'])->name('seasons.index');
+
+Route::post('/animes/{animeId}/editName', [AnimesController::class, 'update']);
 
 Route::view('/{path?}', 'app');
